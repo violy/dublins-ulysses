@@ -1,0 +1,45 @@
+{
+  "name": "a-map-of-james-joyce-s-ulysses",
+  "version": "1.0.0",
+  "private": true,
+  "description": "a-map-of-james-joyce-s-ulysses",
+  "author": "Arthur Violy",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "gatsby": "^4.14.1",
+    "gatsby-plugin-image": "^2.14.1",
+    "gatsby-plugin-manifest": "^4.14.0",
+    "gatsby-plugin-mdx": "^3.14.0",
+    "gatsby-plugin-react-helmet": "^5.14.0",
+    "gatsby-plugin-sass": "^5.14.0",
+    "gatsby-plugin-sharp": "^4.14.1",
+    "gatsby-plugin-sitemap": "^5.14.0",
+    "gatsby-source-filesystem": "^4.14.0",
+    "gatsby-transformer-remark": "^5.14.0",
+    "gatsby-transformer-sharp": "^4.14.0",
+    "mapbox-gl": "^2.8.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "sass": "^1.51.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^17.0.16",
+    "parse-kml": "^1.0.1",
+    "typescript": "^4.6.4"
+  }
+}
