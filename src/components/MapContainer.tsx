@@ -66,11 +66,6 @@ export const MapContainer = () => {
         currentMap.on('load',function(){
 
             // @ts-ignore
-            currentMap.getStyle().layers.forEach((l)=>{
-                console.log(l.id,l.type)
-            })
-
-            // @ts-ignore
             notes.nodes.forEach((note)=>{
                 const {frontmatter, excerpt, id} = note
                 const {
@@ -148,7 +143,7 @@ export const MapContainer = () => {
                                     22, .2
                                 ],
                             }
-                        },'bridge-simple');
+                        });
                 }
             })
 
@@ -160,6 +155,24 @@ export const MapContainer = () => {
                 type:'geojson',
                 data: markersGeojson
             })
+            currentMap.addSource('dublin-1906-tiles', {
+                'type': 'raster',
+                'tiles': [
+                    'https://mapwarper.net/maps/tile/64940/{z}/{x}/{y}.png'
+                ],
+                //'minzoom': 12,
+                //'maxzoom': 22
+            });
+
+            //
+            currentMap.addLayer(
+                {
+                    'id': 'dublin-1906', // Layer ID
+                    'type': 'raster',
+                    'source': 'dublin-1906-tiles', // ID of the tile source created above
+
+                },
+            );
 
             currentMap.addLayer({
                 'id': 'paths',
@@ -171,12 +184,12 @@ export const MapContainer = () => {
                         'interpolate',
                         ['exponential', 0.5],
                         ['zoom'],
-                        10, 2,
-                        18, 4,
-                        20, 10
+                        10, 1,
+                        20, 3,
+                        22, 10
                     ],
                 },
-            },'road-label-simple')
+            })
 
             currentMap.addLayer({
                 'id': 'paths_label',
@@ -196,7 +209,7 @@ export const MapContainer = () => {
                     ]
                 },
                 'paint': {
-                    'text-halo-color': '#fff',
+                    'text-halo-color': '#e0d1bc',
                     'text-halo-width': 2,
                     'text-color': ['get','color'],
                 },
@@ -208,6 +221,8 @@ export const MapContainer = () => {
                 'source': 'markers',
                 'paint': {
                     'circle-color': ['get','color'],
+                    'circle-stroke-width': 2,
+                    'circle-stroke-color': '#e0d1bc',
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
@@ -217,7 +232,7 @@ export const MapContainer = () => {
                         20, 16
                     ],
                 },
-            },'road-label-simple')
+            })
 
             currentMap.addLayer({
                 'id': 'markers_label',
@@ -236,7 +251,7 @@ export const MapContainer = () => {
                     ]
                 },
                 'paint': {
-                    'text-halo-color': '#fff',
+                    'text-halo-color': '#e0d1bc',
                     'text-halo-width': 2,
                     'text-color': ['get','color'],
                 },
